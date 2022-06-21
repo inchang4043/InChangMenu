@@ -1,3 +1,4 @@
+package XManageMent;
 import java.util.Scanner;
 
 public class FutsalMenu {

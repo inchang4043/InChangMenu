@@ -1,4 +1,7 @@
+package XManageMent;
 import java.util.Scanner;
+
+import gui.FutsalManager;
 
 public class MenuManager {
 
