@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 public class WindowFrame extends JFrame{
 	FutsalManager futsalManager;
+	
 	MenuSelection menuselection;
 	MemberAdder memberadder;
 	MemberViewer memberviewer;
@@ -17,7 +18,7 @@ public class WindowFrame extends JFrame{
 		
 		this.futsalManager = futsalManager;
 		menuselection = new MenuSelection(this);
-		memberadder = new MemberAdder(this);
+		memberadder = new MemberAdder(this, this.futsalManager);
 		memberviewer = new MemberViewer(this, this.futsalManager);
 		
 		this.add(menuselection);

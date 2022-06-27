@@ -19,10 +19,23 @@ public class FutsalManager implements Serializable {
 	
 		ArrayList<MemberInput> members = new ArrayList<MemberInput>();
 		transient Scanner  input;
-		FutsalManager(Scanner input) {
+		public FutsalManager(Scanner input) {
 			this.input = input;
 		}
 		
+		public void setScanner(Scanner input) {
+			this.input = input;
+		}
+		
+		public void addMember(String id, String name, String email, String phone) {
+			MemberInput memberInput = new UniversityMember(MemberKind.University);
+			MemberInput.getUserInput(input);
+			members.add(memberInput);
+		}
+		
+		public void addMember(MemberInput memberInput) {
+			members.add(memberInput);
+		}
 	public void addMember() {
 		int kind = 0;
 		MemberInput memberInput;
@@ -35,19 +48,19 @@ public class FutsalManager implements Serializable {
 		kind = input.nextInt();
 		if (kind == 1) {
 			memberInput  = new UniversityMember(MemberKind.University); 
-			memberInput.getUserInput(input); 
+			MemberInput.getUserInput(input); 
 			members.add(memberInput);
 			break;
 		}
 		else if (kind == 2) {
 			memberInput  = new HighSchoolMember(MemberKind.HighSchool);
-			memberInput.getUserInput(input);
+			MemberInput.getUserInput(input);
 			members.add(memberInput);
 			break;
 		}
 		else if (kind == 3) {
 			memberInput  = new ElementarySchoolMember(MemberKind.ElementarySchool);
-			memberInput.getUserInput(input);
+			MemberInput.getUserInput(input);
 			members.add(memberInput);
 			break;
 		}
@@ -136,10 +149,14 @@ public class FutsalManager implements Serializable {
 	public int size() {
 		return members.size();
 	}
+	
 	public MemberInput get(int index) {
 		return (Member) members.get(index);
 	}
-	
+//	public MemberInput get(int index) {
+//		return (Member) members.get(index);
+//	}
+//	
 	public void showEditMenu() {
 		System.out.println("*** FutSal Management System Menu ***");
 		System.out.println("1. Edit MemberId");
@@ -150,10 +167,7 @@ public class FutsalManager implements Serializable {
 		System.out.println("Select one number between 1 - 6 :");
 	}
 
-	public void setScanner(Scanner input2) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
 
 	

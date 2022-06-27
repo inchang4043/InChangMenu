@@ -142,4 +142,6 @@ public abstract class Member implements MemberInput, Serializable{
 		}
 		return skind;
 	}
+
+	public abstract void getUserInput(Scanner input);
 }

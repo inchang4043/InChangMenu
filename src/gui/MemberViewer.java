@@ -15,6 +15,37 @@ public class MemberViewer extends JPanel{
 	WindowFrame frame;
 	FutsalManager futsalManager;
 	
+	public FutsalManager getFutsalManager() {
+		return futsalManager;
+	}
+
+	public void setFutsalManager(FutsalManager futsalManager) {
+		this.futsalManager = futsalManager;
+		this.removeAll();
+		
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Id");
+		model.addColumn("Name");
+		model.addColumn("Email");
+		model.addColumn("Contact Info.");
+		
+		
+		for (int i=0; i< futsalManager.size(); i++) {
+			Vector row = new Vector();
+			MemberInput mi = futsalManager.get(i);
+			row.add(mi.getId());	
+			row.add(mi.getName());
+			row.add(mi.getEmail());
+			row.add(mi.getPhone());
+			model.addRow(row);
+		}
+		
+		JTable table = new JTable(model);
+		JScrollPane sp = new JScrollPane(table);
+		
+		this.add(sp);
+	}
+
 	public MemberViewer(WindowFrame frame, FutsalManager futsalManager) {
 		this.frame = frame;
 		this.futsalManager = futsalManager;
@@ -27,10 +58,11 @@ public class MemberViewer extends JPanel{
 		model.addColumn("Email");
 		model.addColumn("Contact Info.");
 		
+		
 		for (int i=0; i< futsalManager.size(); i++) {
 			Vector row = new Vector();
 			MemberInput mi = futsalManager.get(i);
-			row.add(mi.getId());
+			row.add(mi.getId());	
 			row.add(mi.getName());
 			row.add(mi.getEmail());
 			row.add(mi.getPhone());

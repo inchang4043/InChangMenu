@@ -22,7 +22,10 @@ public interface MemberInput {
 	
 	public void setPhone(String phone);
 	
-	public void getUserInput(Scanner  input);
+	public static void getUserInput(Scanner  input) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	public void printInfo();
 	

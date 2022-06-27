@@ -1,3 +1,4 @@
+package HomeWork;
 import java.util.Scanner;
 
 public class ExerciseProblemCoin {

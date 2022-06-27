@@ -23,6 +23,12 @@ public class FutsalManager implements Serializable {
 			this.input = input;
 		}
 		
+	public void addMember(String id, String name, String email, String phone) {
+		MemberInput memberInput  = new UniversityMember(MemberKind.University); 
+		MemberInput.getUserInput(input); 
+		members.add(memberInput);
+	}
+		
 	public void addMember() {
 		int kind = 0;
 		MemberInput memberInput;
@@ -35,19 +41,19 @@ public class FutsalManager implements Serializable {
 		kind = input.nextInt();
 		if (kind == 1) {
 			memberInput  = new UniversityMember(MemberKind.University); 
-			memberInput.getUserInput(input); 
+			MemberInput.getUserInput(input); 
 			members.add(memberInput);
 			break;
 		}
 		else if (kind == 2) {
 			memberInput  = new HighSchoolMember(MemberKind.HighSchool);
-			memberInput.getUserInput(input);
+			MemberInput.getUserInput(input);
 			members.add(memberInput);
 			break;
 		}
 		else if (kind == 3) {
 			memberInput  = new ElementarySchoolMember(MemberKind.ElementarySchool);
-			memberInput.getUserInput(input);
+			MemberInput.getUserInput(input);
 			members.add(memberInput);
 			break;
 		}
